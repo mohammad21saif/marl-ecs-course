@@ -11,7 +11,7 @@ source .venv/bin/activate
 pip3 install gymnasium numpy matplotlib
 python3 q_with_epsilon.py
 ```
-Results are saved in home directory in the format ```q_learning_{num_episodes}_{epsilon_start}_{epsilon_end}_{epsilon_decay_steps}.png```.
+Results are saved in home directory in the format ```q_learning_{num_episodes}_{epsilon_start}_{epsilon_end}_{epsilon_decay_steps}.png```. The Q table is also saved in format ```q_table.pkl```.
 
 ## ANSWER:
 
@@ -113,16 +113,19 @@ Average TD error = 1546.64,
 Convergence of returns at 252.90   
 ![q_learning_64999_0.5_0.01_100000.png](q_learning_64999_0.5_0.01_100000.png)
 ![q_learning_loss_64999_0.5_0.01_100000.png](q_learning_loss_64999_0.5_0.01_100000.png)
+![optimal_path_ax_arrow.png](optimal_path_ax_arrow.png)
+
 
 
 
 ## Discussion
 In run 1, the decay of epsilon is fast. It is exploring for less time eventually setting to epsilon = 0.01. The convergence seems to be faster.  
 
-In run 2, the decay of epsilon is reltively slow. It is getting more time to explore eventually setting to epsilon = 0.01.   The convergence is slower. It was also observed that on setting number of episodes to 100000, the total reward of episodes started to fluctuate more after crossing ~75000 episodes (Plot not shown here).  
+In run 2, the decay of epsilon is reltively slow. It is getting more time to explore eventually setting to epsilon = 0.01.   The convergence is slower. It was also observed that on setting number of episodes to 100000, the total reward of episodes started to fluctuate more after crossing ~75000 episodes (Plot not shown here).    
 
-More episodes are needed for the returns to converge properly for both runs.  
-The loss is also decreasing. In run 2, more fine-tuning is needed for the loss to settle down.
+
+## Improvements
+The results can further be improved by exploring different functions for epsilon decay, hyperparameter tuning, changing the state space of the environment. Also, other techniques like DQN, SAC, etc. can also be implemented to assess the results.
   
    
 
